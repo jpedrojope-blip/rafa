@@ -1,0 +1,1850 @@
+@font-face {
+  font-family: "Levo Sans";
+  src: url("/sites/levo-studio-com-7d74c785/root-8a5edab2/7d4881bb7e1bf84d-s.p.woff2") format("woff2");
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Levo Mono";
+  src: url("/sites/levo-studio-com-7d74c785/root-8a5edab2/22a5144ee8d83bca-s.p.woff2") format("woff2");
+  font-display: swap;
+}
+
+:root {
+  --levo-bg: #080808;
+  --levo-bg-soft: #0d0d0d;
+  --levo-white: #f5f5f3;
+  --levo-muted: #8e8e8a;
+  --levo-dim: #545451;
+  --levo-line: rgba(255, 255, 255, 0.12);
+  --levo-amber: #ffb100;
+  --levo-amber-soft: rgba(255, 177, 0, 0.12);
+  --levo-max: 1320px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  background: var(--levo-bg);
+}
+
+body {
+  margin: 0;
+  background: var(--levo-bg);
+  color: var(--levo-white);
+  font-family: "Levo Sans", Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+a:focus-visible {
+  outline: 2px solid var(--levo-amber);
+  outline-offset: 4px;
+}
+
+.levo-landing {
+  position: relative;
+  overflow: clip;
+  background:
+    radial-gradient(circle at 26% 13%, rgba(255, 177, 0, 0.055), transparent 25rem),
+    var(--levo-bg);
+}
+
+.levo-grain {
+  position: fixed;
+  inset: 0;
+  z-index: 20;
+  pointer-events: none;
+  opacity: 0.08;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.55'/%3E%3C/svg%3E");
+  mix-blend-mode: soft-light;
+}
+
+.levo-eyebrow,
+.levo-hero__meta,
+.levo-hero__foot,
+.levo-card__tag,
+.levo-hero__rating {
+  font-family: "Levo Mono", "Courier New", monospace;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+}
+
+.levo-hero {
+  position: relative;
+  display: flex;
+  align-items: center;
+  min-height: 100svh;
+  padding: clamp(2rem, 7vw, 6.25rem) clamp(1.9rem, 6vw, 6.25rem) 2rem;
+  isolation: isolate;
+  background-image:
+    linear-gradient(90deg, rgba(8, 8, 8, 0.99) 0%, rgba(8, 8, 8, 0.94) 31%, rgba(8, 8, 8, 0.52) 64%, rgba(8, 8, 8, 0.08) 100%),
+    linear-gradient(180deg, rgba(8, 8, 8, 0.1), rgba(8, 8, 8, 0.58)),
+    url("/sites/barbearia-do-rafa/rafa-logo.jpeg");
+  background-position: center, center, 40% center;
+  background-size: cover, cover, cover;
+  background-repeat: no-repeat;
+}
+
+.brand-tabs {
+  position: absolute;
+  z-index: 2;
+  top: clamp(1rem, 2.5vw, 2rem);
+  right: clamp(1.9rem, 6vw, 6.25rem);
+  left: clamp(1.9rem, 6vw, 6.25rem);
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.13);
+  border-radius: 999px;
+  background: linear-gradient(110deg, rgba(10, 10, 10, 0.78), rgba(19, 17, 12, 0.58));
+  box-shadow: 0 18px 45px rgba(0, 0, 0, 0.24), inset 0 1px 0 rgba(255, 255, 255, 0.07);
+  backdrop-filter: blur(18px) saturate(125%);
+}
+
+.brand-tabs__inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.35rem 0.4rem 0.35rem 0.8rem;
+}
+
+.brand-tabs__mark {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  min-height: 44px;
+  padding: 0 0.85rem 0 0.35rem;
+  color: var(--levo-white);
+  border-right: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.brand-tabs__mark span {
+  color: var(--levo-amber);
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+}
+
+.brand-tabs__mark small {
+  color: var(--levo-muted);
+  font-family: "Levo Mono", "Courier New", monospace;
+  font-size: 0.52rem;
+  letter-spacing: 0.12em;
+}
+
+.brand-tabs__links {
+  display: flex;
+  align-items: center;
+  gap: 0.2rem;
+}
+
+.brand-tabs__tab,
+.brand-tabs__cta {
+  display: inline-flex;
+  position: relative;
+  min-height: 44px;
+  align-items: center;
+  padding: 0.55rem 0.75rem;
+  color: var(--levo-muted);
+  border-radius: 999px;
+  font-family: "Levo Mono", "Courier New", monospace;
+  font-size: 0.58rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  isolation: isolate;
+  overflow: hidden;
+  transition: color 180ms ease, background 180ms ease, border-color 180ms ease, box-shadow 180ms ease;
+}
+
+.brand-tabs__tab::before,
+.brand-tabs__cta::before {
+  position: absolute;
+  z-index: -1;
+  inset: -45%;
+  content: "";
+  background: radial-gradient(circle, rgba(255, 196, 58, 0.42) 0%, rgba(255, 177, 0, 0.12) 28%, transparent 66%);
+  opacity: 0;
+  transform: scale(0.65);
+  transition: opacity 220ms ease, transform 260ms ease;
+}
+
+.brand-tabs__tab > span,
+.brand-tabs__cta > span {
+  position: relative;
+  z-index: 1;
+}
+
+.brand-tabs__tab:hover,
+.brand-tabs__tab:focus-visible {
+  color: var(--levo-white);
+  background: rgba(255, 255, 255, 0.07);
+  box-shadow: 0 0 0 1px rgba(255, 177, 0, 0.22), 0 0 22px rgba(255, 177, 0, 0.18);
+}
+
+.brand-tabs__tab:hover::before,
+.brand-tabs__tab:focus-visible::before,
+.brand-tabs__cta:hover::before,
+.brand-tabs__cta:focus-visible::before {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.brand-tabs__tab--accent {
+  color: var(--levo-amber);
+}
+
+.brand-tabs__tab--primary {
+  color: #090909;
+  background: var(--levo-amber);
+  box-shadow: 0 8px 20px rgba(255, 177, 0, 0.16);
+}
+
+.brand-tabs__tab--primary:hover,
+.brand-tabs__tab--primary:focus-visible {
+  color: #090909;
+  background: #ffc23c;
+  box-shadow: 0 0 0 1px rgba(255, 221, 132, 0.8), 0 0 28px rgba(255, 177, 0, 0.45);
+}
+
+.brand-tabs__cta {
+  margin-left: 0.35rem;
+  color: var(--levo-amber);
+  border: 1px solid rgba(255, 177, 0, 0.5);
+  background: rgba(255, 177, 0, 0.1);
+}
+
+.brand-tabs__cta:hover,
+.brand-tabs__cta:focus-visible {
+  color: #090909;
+  background: var(--levo-amber);
+  box-shadow: 0 0 0 1px rgba(255, 221, 132, 0.75), 0 0 25px rgba(255, 177, 0, 0.38);
+}
+
+.levo-hero__glow,
+.levo-philosophy__glow,
+.levo-cta__glow {
+  position: absolute;
+  width: min(62vw, 760px);
+  height: min(62vw, 760px);
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(255, 177, 0, 0.14) 0%, rgba(255, 177, 0, 0.04) 28%, transparent 68%);
+  filter: blur(32px);
+  pointer-events: none;
+  z-index: -1;
+}
+
+.levo-hero__glow {
+  left: 9%;
+  top: 2%;
+}
+
+.levo-hero__brand {
+  display: none;
+}
+
+.levo-hero__brand img {
+  display: none;
+}
+
+.hero-in {
+  position: relative;
+  z-index: 1;
+  width: min(100%, var(--levo-max));
+  margin: 4vh auto 0;
+}
+
+.levo-hero__meta {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  margin: 0 0 clamp(2.7rem, 6vh, 5.5rem);
+  color: var(--levo-muted);
+  font-size: 0.7rem;
+}
+
+.levo-hero__dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--levo-amber);
+  box-shadow: 0 0 18px rgba(255, 177, 0, 0.75);
+}
+
+.levo-hero__sep {
+  color: var(--levo-dim);
+}
+
+.levo-hero__title {
+  max-width: 1220px;
+  margin: 0;
+  color: var(--levo-white);
+  font-size: clamp(3.4rem, 8.2vw, 8.7rem);
+  font-weight: 700;
+  letter-spacing: -0.085em;
+  line-height: 0.92;
+}
+
+.levo-hero__title span {
+  display: block;
+}
+
+.levo-hero__title-dim {
+  color: #8e8e8b;
+}
+
+.levo-hero__lede {
+  max-width: 570px;
+  margin: clamp(2rem, 4vw, 3.6rem) 0 0;
+  color: var(--levo-muted);
+  font-size: clamp(1rem, 1.55vw, 1.25rem);
+  line-height: 1.55;
+}
+
+.levo-hero__actions {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1.4rem 1.8rem;
+  margin-top: 2.4rem;
+}
+
+.levo-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 50px;
+  padding: 0.9rem 1.8rem;
+  color: #090909;
+  background: var(--levo-amber);
+  border-radius: 999px;
+  font-size: 0.95rem;
+  font-weight: 500;
+  transition: transform 180ms ease, box-shadow 180ms ease, background 180ms ease;
+}
+
+.levo-btn:hover {
+  background: #ffc136;
+  box-shadow: 0 12px 35px rgba(255, 177, 0, 0.22);
+  transform: translateY(-2px);
+}
+
+.levo-hero__textlink,
+.levo-card__link {
+  color: var(--levo-amber);
+  border-bottom: 1px solid rgba(255, 177, 0, 0.35);
+  font-size: 0.92rem;
+  transition: color 180ms ease, border-color 180ms ease;
+}
+
+.levo-hero__textlink:hover,
+.levo-card__link:hover {
+  color: #ffd264;
+  border-color: var(--levo-amber);
+}
+
+.levo-hero__rating {
+  margin: 2.5rem 0 0;
+  color: var(--levo-muted);
+  font-size: 0.68rem;
+}
+
+.levo-hero__rating span {
+  color: var(--levo-amber);
+  font-size: 0.9rem;
+}
+
+.levo-hero__rating strong {
+  color: var(--levo-white);
+}
+
+.levo-hero__foot {
+  position: absolute;
+  right: clamp(1.9rem, 6vw, 6.25rem);
+  bottom: 2.2rem;
+  left: clamp(1.9rem, 6vw, 6.25rem);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: var(--levo-dim);
+  font-size: 0.62rem;
+}
+
+.levo-hero__scroll {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.7rem;
+}
+
+.levo-hero__scroll span {
+  display: inline-block;
+  width: 1px;
+  height: 24px;
+  background: var(--levo-muted);
+  animation: levo-scroll 1.8s ease-in-out infinite;
+}
+
+@keyframes levo-scroll {
+  0%, 100% { transform: scaleY(0.4); transform-origin: top; opacity: 0.4; }
+  50% { transform: scaleY(1); transform-origin: top; opacity: 1; }
+}
+
+.levo-pin {
+  position: relative;
+  height: 220svh;
+}
+
+.levo-pin__sticky {
+  position: sticky;
+  top: 0;
+  display: flex;
+  min-height: 100svh;
+  padding: 10vh clamp(1.9rem, 6vw, 6.25rem) 9vh;
+  flex-direction: column;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.levo-philosophy__glow {
+  right: -22%;
+  bottom: -24%;
+  opacity: 0.72;
+}
+
+.levo-philosophy__label,
+.levo-cta__label {
+  position: relative;
+  z-index: 1;
+  margin: 0 0 3rem;
+  color: var(--levo-amber);
+  font-size: 0.7rem;
+}
+
+.levo-philosophy__text {
+  position: relative;
+  z-index: 1;
+  max-width: 1190px;
+  margin: 0;
+  color: var(--levo-white);
+  font-size: clamp(2.8rem, 6.7vw, 7.4rem);
+  font-weight: 650;
+  letter-spacing: -0.075em;
+  line-height: 0.98;
+}
+
+.philosophy-word,
+.crawl-word {
+  display: inline-block;
+  will-change: filter, opacity, color;
+}
+
+.levo-philosophy__proof {
+  position: relative;
+  z-index: 1;
+  margin: 3rem 0 0;
+  color: var(--levo-muted);
+  font-family: "Levo Mono", "Courier New", monospace;
+  font-size: 0.72rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.levo-philosophy__proof span {
+  color: var(--levo-amber);
+}
+
+.levo-pinbar {
+  position: absolute;
+  right: clamp(1.9rem, 6vw, 6.25rem);
+  bottom: 2.5rem;
+  left: clamp(1.9rem, 6vw, 6.25rem);
+  height: 1px;
+  background: var(--levo-line);
+}
+
+.levo-pinbar__fill {
+  display: block;
+  width: 0;
+  height: 1px;
+  background: var(--levo-amber);
+  transition: width 80ms linear;
+}
+
+.levo-leistungen-head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 2rem;
+  max-width: var(--levo-max);
+  margin: 0 auto;
+  padding: 8rem clamp(1.9rem, 6vw, 6.25rem) 3rem;
+  border-top: 1px solid var(--levo-line);
+}
+
+.levo-leistungen-head h2 {
+  margin: 0;
+  color: var(--levo-white);
+  font-size: clamp(2.8rem, 6vw, 6rem);
+  font-weight: 650;
+  letter-spacing: -0.075em;
+}
+
+.levo-eyebrow {
+  color: var(--levo-muted);
+  font-family: "Levo Mono", "Courier New", monospace;
+  font-size: 0.68rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.levo-card {
+  height: 190svh;
+  border-top: 1px solid var(--levo-line);
+}
+
+.levo-card__sticky {
+  position: sticky;
+  top: 0;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(340px, 0.8fr);
+  align-items: center;
+  gap: clamp(3rem, 8vw, 9rem);
+  min-height: 100svh;
+  padding: 10vh clamp(1.9rem, 6vw, 6.25rem);
+  overflow: hidden;
+}
+
+.levo-card__tag {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin: 0 0 2.5rem;
+}
+
+.levo-card__num {
+  color: var(--levo-amber);
+  font-size: 0.75rem;
+}
+
+.levo-card h3 {
+  max-width: 700px;
+  margin: 0;
+  color: var(--levo-white);
+  font-size: clamp(2.8rem, 6.6vw, 7rem);
+  font-weight: 650;
+  letter-spacing: -0.08em;
+  line-height: 0.95;
+}
+
+.levo-card__text {
+  max-width: 590px;
+  margin: 2.5rem 0 0;
+  color: var(--levo-muted);
+  font-size: clamp(1rem, 1.45vw, 1.2rem);
+  line-height: 1.55;
+}
+
+.levo-card__text .crawl-word[data-accent="true"] {
+  color: var(--levo-amber);
+}
+
+.levo-card__link {
+  display: inline-block;
+  margin-top: 2.1rem;
+}
+
+.levo-card__svg {
+  width: min(100%, 500px);
+  height: auto;
+  justify-self: end;
+  overflow: visible;
+  color: var(--levo-muted);
+  font-family: "Levo Mono", "Courier New", monospace;
+  font-size: 11px;
+  letter-spacing: 0.05em;
+}
+
+.levo-card__media,
+.levo-card__map-frame {
+  position: relative;
+  width: min(100%, 500px);
+  height: min(62vh, 430px);
+  min-height: 300px;
+  justify-self: end;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  background: #0d0f12;
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.28), 0 0 35px rgba(255, 177, 0, 0.04);
+}
+
+.levo-card__media::after {
+  position: absolute;
+  inset: 0;
+  content: "";
+  pointer-events: none;
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0.03) 32%, rgba(0, 0, 0, 0.7) 100%);
+}
+
+.levo-card__media img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: saturate(0.86) contrast(1.06);
+  transition: transform 700ms cubic-bezier(0.2, 0.7, 0.2, 1), filter 400ms ease;
+}
+
+.levo-card__media:hover img {
+  filter: saturate(1) contrast(1.08);
+  transform: scale(1.04);
+}
+
+.levo-card__media figcaption {
+  position: absolute;
+  z-index: 1;
+  right: 1rem;
+  bottom: 1rem;
+  left: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: var(--levo-white);
+  font-family: "Levo Mono", "Courier New", monospace;
+  font-size: 0.68rem;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+}
+
+.levo-card__media figcaption b {
+  display: grid;
+  width: 32px;
+  height: 32px;
+  place-items: center;
+  color: #090909;
+  background: var(--levo-amber);
+  border-radius: 50%;
+  font-size: 1rem;
+}
+
+.levo-card__map-frame {
+  border-color: rgba(255, 177, 0, 0.36);
+}
+
+.levo-card__map-frame iframe {
+  display: block;
+  width: 100%;
+  height: 100%;
+  border: 0;
+  filter: grayscale(0.6) sepia(0.18) contrast(1.05) brightness(0.72);
+}
+
+.levo-card__map-frame a {
+  position: absolute;
+  z-index: 1;
+  right: 1rem;
+  bottom: 1rem;
+  display: inline-flex;
+  min-height: 44px;
+  align-items: center;
+  gap: 0.55rem;
+  padding: 0.65rem 0.85rem;
+  color: #090909;
+  background: var(--levo-amber);
+  border-radius: 999px;
+  font-family: "Levo Mono", "Courier New", monospace;
+  font-size: 0.64rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.levo-card__map-frame a:hover {
+  background: #ffc136;
+  box-shadow: 0 0 26px rgba(255, 177, 0, 0.35);
+}
+
+.levo-card__svg text {
+  fill: currentColor;
+}
+
+.levo-card__svg .accent-text,
+.levo-card__svg .diagram-label {
+  fill: var(--levo-amber);
+}
+
+.levo-card__svg .draw {
+  vector-effect: non-scaling-stroke;
+}
+
+.levo-reviews {
+  max-width: var(--levo-max);
+  margin: 0 auto;
+  padding: 10rem clamp(1.9rem, 6vw, 6.25rem);
+  border-top: 1px solid var(--levo-line);
+}
+
+.levo-reviews__head {
+  display: grid;
+  grid-template-columns: 1fr 1.6fr auto;
+  align-items: end;
+  gap: 2rem;
+}
+
+.levo-reviews__head .levo-eyebrow {
+  align-self: start;
+  color: var(--levo-amber);
+}
+
+.levo-reviews h2 {
+  margin: 0;
+  color: var(--levo-white);
+  font-size: clamp(2.8rem, 5.5vw, 6rem);
+  font-weight: 650;
+  letter-spacing: -0.075em;
+  line-height: 0.95;
+}
+
+.levo-reviews__head > p:last-child {
+  margin: 0;
+  color: var(--levo-muted);
+  font-family: "Levo Mono", "Courier New", monospace;
+  font-size: 0.7rem;
+  letter-spacing: 0.08em;
+  white-space: nowrap;
+}
+
+.levo-reviews__head strong {
+  color: var(--levo-amber);
+}
+
+.levo-reviews__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1px;
+  margin-top: 5rem;
+  background: var(--levo-line);
+}
+
+.levo-review {
+  min-height: 260px;
+  margin: 0;
+  padding: 1.6rem;
+  background: var(--levo-bg);
+}
+
+.levo-review__stars {
+  color: var(--levo-amber);
+  font-size: 0.8rem;
+  letter-spacing: 0.15em;
+}
+
+.levo-review blockquote {
+  margin: 4.2rem 0 2rem;
+  color: var(--levo-white);
+  font-size: 1.05rem;
+  line-height: 1.45;
+}
+
+.levo-review figcaption {
+  color: var(--levo-muted);
+  font-family: "Levo Mono", "Courier New", monospace;
+  font-size: 0.7rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.levo-cta {
+  position: relative;
+  display: flex;
+  min-height: 78svh;
+  padding: 10vh clamp(1.9rem, 6vw, 6.25rem);
+  flex-direction: column;
+  justify-content: center;
+  overflow: hidden;
+  border-top: 1px solid var(--levo-line);
+}
+
+.levo-cta__glow {
+  right: -16%;
+  top: -20%;
+}
+
+.levo-cta__label,
+.levo-cta__link,
+.levo-cta__note,
+.levo-cta__mail {
+  position: relative;
+  z-index: 1;
+}
+
+.levo-cta__link {
+  display: inline-flex;
+  align-items: baseline;
+  align-self: flex-start;
+  gap: 0.5rem;
+  color: var(--levo-white);
+  font-size: clamp(3.5rem, 9vw, 9rem);
+  font-weight: 650;
+  letter-spacing: -0.09em;
+  line-height: 0.95;
+}
+
+.levo-cta__link:hover {
+  color: var(--levo-amber);
+}
+
+.levo-cta__chevron {
+  color: var(--levo-amber);
+}
+
+.levo-cta__cursor {
+  display: inline-block;
+  width: 0.08em;
+  height: 0.76em;
+  margin-left: 0.08em;
+  background: var(--levo-amber);
+  animation: levo-blink 1s steps(1) infinite;
+}
+
+@keyframes levo-blink {
+  50% { opacity: 0; }
+}
+
+.levo-cta__note {
+  max-width: 460px;
+  margin: 2rem 0 0 3.2rem;
+  color: var(--levo-muted);
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+.levo-cta__mail {
+  align-self: flex-start;
+  margin: 2rem 0 0 3.2rem;
+  color: var(--levo-amber);
+  font-family: "Levo Mono", "Courier New", monospace;
+  font-size: 0.78rem;
+  letter-spacing: 0.08em;
+}
+
+.levo-about-teaser {
+  border-top: 1px solid var(--levo-line);
+}
+
+.levo-about-teaser__link {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 2rem;
+  padding: 2.5rem clamp(1.9rem, 6vw, 6.25rem);
+  color: var(--levo-muted);
+  font-size: clamp(1.4rem, 3vw, 3rem);
+  letter-spacing: -0.04em;
+}
+
+.levo-about-teaser__b {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  color: var(--levo-amber);
+  font-family: "Levo Mono", "Courier New", monospace;
+  font-size: 0.72rem;
+  letter-spacing: 0.1em;
+}
+
+.levo-about-teaser__link:hover > span:first-child {
+  color: var(--levo-white);
+}
+
+.levo-about-teaser__arrow {
+  font-size: 1.4rem;
+}
+
+.levo-footer {
+  display: flex;
+  justify-content: flex-end;
+  gap: 2rem;
+  padding: 2rem clamp(1.9rem, 6vw, 6.25rem) 3.5rem;
+  color: var(--levo-dim);
+  font-family: "Levo Mono", "Courier New", monospace;
+  font-size: 0.63rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.levo-footer a:hover {
+  color: var(--levo-amber);
+}
+
+@media (max-width: 800px) {
+  .levo-hero {
+    min-height: 100svh;
+    padding-top: 2.5rem;
+    background-position: center, center, 40% center;
+    background-size: cover, cover, cover;
+  }
+
+  .brand-tabs {
+    top: 0.75rem;
+    right: 1rem;
+    left: 1rem;
+    border-radius: 24px;
+  }
+
+  .brand-tabs__inner {
+    align-items: flex-start;
+    gap: 0.55rem;
+    padding: 0.5rem;
+    flex-direction: column;
+  }
+
+  .brand-tabs__mark {
+    width: 100%;
+    min-height: 40px;
+    padding-inline: 0.35rem;
+    border-right: 0;
+  }
+
+  .brand-tabs__links {
+    width: 100%;
+    overflow-x: auto;
+    padding-bottom: 0.1rem;
+  }
+
+  .brand-tabs__tab,
+  .brand-tabs__cta {
+    flex: 0 0 auto;
+    min-height: 38px;
+    padding-inline: 0.65rem;
+  }
+
+  .levo-hero__meta {
+    flex-wrap: wrap;
+    margin-bottom: 3rem;
+    font-size: 0.62rem;
+  }
+
+  .levo-hero__title {
+    font-size: clamp(3.25rem, 13.2vw, 6rem);
+    letter-spacing: -0.075em;
+  }
+
+  .levo-hero__lede {
+    max-width: 520px;
+    font-size: 0.98rem;
+  }
+
+  .levo-hero__foot {
+    align-items: flex-end;
+    font-size: 0.55rem;
+  }
+
+  .levo-hero__foot > span:first-child {
+    max-width: 62%;
+    line-height: 1.5;
+  }
+
+  .levo-pin {
+    height: 200svh;
+  }
+
+  .levo-pin__sticky {
+    padding-top: 8vh;
+  }
+
+  .levo-philosophy__text {
+    font-size: clamp(2.55rem, 11.9vw, 5.3rem);
+  }
+
+  .levo-card {
+    height: 180svh;
+  }
+
+  .levo-card__sticky {
+    grid-template-columns: 1fr;
+    align-content: center;
+    gap: 2.8rem;
+    padding-top: 7vh;
+  }
+
+  .levo-card h3 {
+    font-size: clamp(3rem, 13vw, 6rem);
+  }
+
+  .levo-card__text {
+    margin-top: 1.6rem;
+    font-size: 0.98rem;
+  }
+
+  .levo-card__svg {
+    width: min(100%, 400px);
+    justify-self: center;
+  }
+
+  .levo-card__media,
+  .levo-card__map-frame {
+    width: min(100%, 400px);
+    height: min(58vh, 360px);
+    min-height: 250px;
+    justify-self: center;
+  }
+
+  .levo-reviews__head {
+    grid-template-columns: 1fr;
+    align-items: start;
+  }
+
+  .levo-reviews__head > p:last-child {
+    white-space: normal;
+  }
+
+  .levo-reviews__grid {
+    grid-template-columns: 1fr;
+    margin-top: 3rem;
+  }
+
+  .levo-review {
+    min-height: 200px;
+  }
+
+  .levo-review blockquote {
+    margin-top: 2.5rem;
+  }
+
+  .levo-cta__link {
+    font-size: clamp(3.1rem, 13vw, 6rem);
+  }
+
+  .levo-cta__note,
+  .levo-cta__mail {
+    margin-left: 0;
+  }
+
+  .levo-about-teaser__link {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 1.2rem;
+  }
+
+  .levo-footer {
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    gap: 1rem 1.5rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* Booking + payment center */
+.central-page {
+  min-height: 100svh;
+  color: var(--levo-white);
+  background:
+    radial-gradient(circle at 78% 12%, rgba(255, 177, 0, 0.08), transparent 24rem),
+    var(--levo-bg);
+}
+
+.central-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: var(--levo-max);
+  min-height: 86px;
+  margin: 0 auto;
+  padding: 1.25rem clamp(1.25rem, 5vw, 4rem);
+  border-bottom: 1px solid var(--levo-line);
+}
+
+.central-brand {
+  display: inline-flex;
+  align-items: center;
+  min-height: 58px;
+}
+
+.central-brand__logo {
+  display: block;
+  width: 150px;
+  height: 58px;
+  object-fit: contain;
+  object-position: left center;
+  border-radius: 999px;
+  filter: drop-shadow(0 0 14px rgba(255, 177, 0, 0.12));
+  transition: filter 180ms ease, transform 180ms ease;
+}
+
+.central-brand:hover .central-brand__logo {
+  filter: drop-shadow(0 0 18px rgba(255, 177, 0, 0.32));
+  transform: translateY(-1px);
+}
+
+.central-header__phone,
+.central-back,
+.central-secondary-link {
+  color: var(--levo-amber);
+  font-family: "Levo Mono", "Courier New", monospace;
+  font-size: 0.7rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.central-header__phone:hover,
+.central-back:hover,
+.central-secondary-link:hover {
+  color: var(--levo-white);
+}
+
+.central-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(280px, 350px);
+  gap: clamp(3rem, 8vw, 9rem);
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: clamp(3rem, 7vw, 6rem) clamp(1.25rem, 5vw, 4rem) 8rem;
+}
+
+.central-workspace {
+  min-width: 0;
+}
+
+.central-back {
+  display: inline-block;
+  min-height: 44px;
+  padding-top: 0.35rem;
+}
+
+.central-intro {
+  max-width: 700px;
+  margin-top: clamp(4rem, 9vw, 7rem);
+}
+
+.central-kicker {
+  margin: 0 0 1.25rem;
+  color: var(--levo-amber);
+  font-family: "Levo Mono", "Courier New", monospace;
+  font-size: 0.68rem;
+  letter-spacing: 0.15em;
+  line-height: 1.4;
+  text-transform: uppercase;
+}
+
+.central-intro h1,
+.central-success h1 {
+  margin: 0;
+  color: var(--levo-white);
+  font-size: clamp(3.8rem, 8vw, 7.4rem);
+  font-weight: 650;
+  letter-spacing: -0.085em;
+  line-height: 0.9;
+}
+
+.central-intro h1 em {
+  color: #92928e;
+  font-style: normal;
+}
+
+.central-intro > p:last-child {
+  max-width: 430px;
+  margin: 2rem 0 0;
+  color: var(--levo-muted);
+  font-size: 1rem;
+  line-height: 1.55;
+}
+
+.central-steps {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+  margin-top: clamp(4rem, 8vw, 7rem);
+  border-top: 1px solid var(--levo-line);
+  border-bottom: 1px solid var(--levo-line);
+}
+
+.central-step {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+  min-height: 58px;
+  padding: 0;
+  color: var(--levo-dim);
+  background: transparent;
+  border: 0;
+  font-family: "Levo Mono", "Courier New", monospace;
+  font-size: 0.65rem;
+  letter-spacing: 0.08em;
+  text-align: left;
+  text-transform: uppercase;
+}
+
+.central-step:not(:disabled) {
+  cursor: pointer;
+}
+
+.central-step span {
+  color: var(--levo-dim);
+}
+
+.central-step.is-active,
+.central-step.is-done {
+  color: var(--levo-white);
+}
+
+.central-step.is-active span,
+.central-step.is-done span {
+  color: var(--levo-amber);
+}
+
+.central-step:focus-visible,
+.central-service-filter:focus-visible,
+.central-service:focus-visible,
+.central-date:focus-visible,
+.central-time:focus-visible,
+.central-button:focus-visible,
+.central-secondary-button:focus-visible {
+  outline: 2px solid var(--levo-amber);
+  outline-offset: 4px;
+}
+
+.central-form {
+  margin-top: 3.5rem;
+}
+
+.central-panel__heading h2 {
+  margin: 0;
+  color: var(--levo-white);
+  font-size: clamp(2.4rem, 5vw, 4.8rem);
+  font-weight: 650;
+  letter-spacing: -0.075em;
+  line-height: 0.96;
+}
+
+.central-panel__helper {
+  max-width: 34rem;
+  margin: 1rem 0 0;
+  color: var(--levo-muted);
+  font-size: 0.88rem;
+  line-height: 1.5;
+}
+
+.central-service-filters {
+  display: flex;
+  gap: 0.45rem;
+  max-width: 100%;
+  margin-top: 2rem;
+  padding: 0.35rem;
+  overflow-x: auto;
+  border: 1px solid var(--levo-line);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.025);
+  scrollbar-width: none;
+}
+
+.central-service-filters::-webkit-scrollbar {
+  display: none;
+}
+
+.central-service-filter {
+  min-height: 36px;
+  padding: 0.55rem 0.85rem;
+  color: var(--levo-muted);
+  background: transparent;
+  border: 1px solid transparent;
+  border-radius: 999px;
+  font-family: "Levo Mono", "Courier New", monospace;
+  font-size: 0.63rem;
+  letter-spacing: 0.04em;
+  white-space: nowrap;
+  cursor: pointer;
+  transition: color 180ms ease, background 180ms ease, border-color 180ms ease, box-shadow 180ms ease;
+}
+
+.central-service-filter:hover,
+.central-service-filter.is-selected {
+  color: #090909;
+  background: var(--levo-amber);
+  border-color: var(--levo-amber);
+  box-shadow: 0 0 18px rgba(255, 177, 0, 0.16);
+}
+
+.central-service-count {
+  margin: 0.8rem 0 0;
+  color: var(--levo-dim);
+  font-family: "Levo Mono", "Courier New", monospace;
+  font-size: 0.62rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.central-service-list {
+  display: grid;
+  gap: 0.7rem;
+  margin-top: 1.25rem;
+}
+
+.central-service {
+  display: grid;
+  grid-template-columns: 42px minmax(0, 1fr) auto 32px;
+  align-items: center;
+  gap: 1rem;
+  width: 100%;
+  min-height: 96px;
+  padding: 1.2rem 1.25rem;
+  color: var(--levo-muted);
+  background: linear-gradient(110deg, rgba(255, 255, 255, 0.045), rgba(255, 255, 255, 0.018));
+  border: 1px solid var(--levo-line);
+  border-radius: 16px;
+  text-align: left;
+  transition: background 180ms ease, border-color 180ms ease, box-shadow 180ms ease, transform 180ms ease;
+}
+
+.central-service:not(:disabled) {
+  cursor: pointer;
+}
+
+.central-service:hover,
+.central-service.is-selected {
+  background: rgba(255, 177, 0, 0.07);
+  border-color: rgba(255, 177, 0, 0.65);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.18), 0 0 22px rgba(255, 177, 0, 0.06);
+  transform: translateX(4px);
+}
+
+.central-service__number {
+  color: var(--levo-amber);
+  font-family: "Levo Mono", "Courier New", monospace;
+  font-size: 0.72rem;
+}
+
+.central-service__price {
+  color: var(--levo-amber);
+  font-family: "Levo Mono", "Courier New", monospace;
+  font-size: 0.7rem;
+  white-space: nowrap;
+}
+
+.central-service strong,
+.central-service small {
+  display: block;
+}
+
+.central-service strong {
+  color: var(--levo-white);
+  font-size: 1.1rem;
+  font-weight: 500;
+}
+
+.central-service small {
+  margin-top: 0.35rem;
+  color: var(--levo-muted);
+  font-size: 0.78rem;
+  line-height: 1.4;
+}
+
+.central-service__select {
+  display: grid;
+  width: 26px;
+  height: 26px;
+  place-items: center;
+  color: var(--levo-amber);
+  border: 1px solid rgba(255, 177, 0, 0.55);
+  border-radius: 50%;
+  font-size: 0.85rem;
+  font-weight: 700;
+  line-height: 1;
+  transition: color 180ms ease, background 180ms ease, border-color 180ms ease, transform 180ms ease;
+}
+
+.central-service:hover .central-service__select,
+.central-service.is-selected .central-service__select {
+  color: #090909;
+  background: var(--levo-amber);
+  border-color: var(--levo-amber);
+  transform: scale(1.06);
+}
+
+.central-date-list {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 0.45rem;
+  margin-top: 3rem;
+}
+
+.central-date,
+.central-time {
+  cursor: pointer;
+  color: var(--levo-muted);
+  background: transparent;
+  border: 1px solid var(--levo-line);
+  transition: background 180ms ease, border-color 180ms ease, color 180ms ease;
+}
+
+.central-date {
+  display: flex;
+  min-height: 96px;
+  padding: 0.7rem 0.25rem;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.2rem;
+}
+
+.central-date span,
+.central-date small {
+  font-family: "Levo Mono", "Courier New", monospace;
+  font-size: 0.6rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.central-date strong {
+  color: var(--levo-white);
+  font-size: 1.45rem;
+  font-weight: 500;
+}
+
+.central-date.is-selected,
+.central-time.is-selected,
+.central-date:hover,
+.central-time:hover {
+  color: #090909;
+  background: var(--levo-amber);
+  border-color: var(--levo-amber);
+}
+
+.central-date.is-selected strong,
+.central-date:hover strong {
+  color: #090909;
+}
+
+.central-time-heading {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-top: 2.5rem;
+  color: var(--levo-white);
+  font-size: 0.85rem;
+}
+
+.central-time-heading small {
+  color: var(--levo-muted);
+  font-family: "Levo Mono", "Courier New", monospace;
+  font-size: 0.62rem;
+  text-align: right;
+}
+
+.central-hours-note {
+  margin: 0.55rem 0 0;
+  color: var(--levo-dim);
+  font-family: "Levo Mono", "Courier New", monospace;
+  font-size: 0.65rem;
+  letter-spacing: 0.03em;
+}
+
+.central-time-list {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.55rem;
+  margin-top: 1rem;
+}
+
+.central-time {
+  min-height: 48px;
+  font-family: "Levo Mono", "Courier New", monospace;
+  font-size: 0.78rem;
+}
+
+.central-fields {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+  margin-top: 3rem;
+}
+
+.central-fields label {
+  display: grid;
+  gap: 0.6rem;
+  color: var(--levo-muted);
+  font-family: "Levo Mono", "Courier New", monospace;
+  font-size: 0.65rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.central-fields input {
+  width: 100%;
+  min-height: 50px;
+  padding: 0.8rem;
+  color: var(--levo-white);
+  background: rgba(255, 255, 255, 0.035);
+  border: 1px solid var(--levo-line);
+  border-radius: 0;
+  font-family: "Levo Sans", Arial, sans-serif;
+  font-size: 1rem;
+}
+
+.central-fields input:focus {
+  outline: 2px solid var(--levo-amber);
+  outline-offset: 2px;
+  border-color: var(--levo-amber);
+}
+
+.central-payment-card {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  margin-top: 2rem;
+  padding: 1rem;
+  color: var(--levo-white);
+  border: 1px solid rgba(255, 177, 0, 0.55);
+  border-radius: 16px;
+  background: linear-gradient(120deg, rgba(255, 177, 0, 0.13), rgba(255, 255, 255, 0.03));
+  box-shadow: 0 14px 32px rgba(0, 0, 0, 0.14);
+}
+
+.central-payment-card__mark {
+  width: 42px;
+  height: 42px;
+  flex: 0 0 auto;
+  object-fit: cover;
+  border-radius: 12px;
+  box-shadow: 0 0 16px rgba(255, 177, 0, 0.22);
+}
+
+.central-payment-card strong,
+.central-payment-card small {
+  display: block;
+}
+
+.central-payment-card strong {
+  font-size: 0.95rem;
+  font-weight: 500;
+}
+
+.central-payment-card small {
+  margin-top: 0.3rem;
+  color: var(--levo-muted);
+  font-size: 0.78rem;
+  line-height: 1.45;
+}
+
+.central-disclaimer,
+.central-error {
+  margin: 1.25rem 0 0;
+  color: var(--levo-muted);
+  font-size: 0.75rem;
+  line-height: 1.5;
+}
+
+.central-error {
+  color: #ff9a84;
+}
+
+.central-actions {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 1rem;
+  margin-top: 2.5rem;
+}
+
+.central-button,
+.central-secondary-button {
+  display: inline-flex;
+  min-height: 50px;
+  padding: 0.85rem 1.2rem;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  border-radius: 999px;
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+.central-button {
+  color: #090909;
+  background: var(--levo-amber);
+  border: 1px solid var(--levo-amber);
+  transition: transform 180ms ease, background 180ms ease;
+}
+
+.central-button:hover {
+  background: #ffc136;
+  transform: translateY(-2px);
+}
+
+.central-secondary-button {
+  color: var(--levo-muted);
+  background: transparent;
+  border: 1px solid var(--levo-line);
+}
+
+.central-secondary-button:hover {
+  color: var(--levo-white);
+  border-color: var(--levo-muted);
+}
+
+.central-summary {
+  position: sticky;
+  top: 2rem;
+  align-self: start;
+  overflow: hidden;
+  padding: 1.5rem;
+  background: linear-gradient(145deg, rgba(255, 255, 255, 0.07), rgba(255, 255, 255, 0.025));
+  border: 1px solid var(--levo-line);
+  border-radius: 20px;
+  box-shadow: 0 22px 60px rgba(0, 0, 0, 0.22), inset 0 1px 0 rgba(255, 255, 255, 0.06);
+}
+
+.central-summary::before {
+  position: absolute;
+  top: 0;
+  right: 15%;
+  left: 15%;
+  height: 2px;
+  content: "";
+  background: linear-gradient(90deg, transparent, var(--levo-amber), transparent);
+  box-shadow: 0 0 18px rgba(255, 177, 0, 0.45);
+}
+
+.central-summary > .central-kicker {
+  margin-bottom: 2.4rem;
+}
+
+.central-summary__logo {
+  display: block;
+  width: 78px;
+  height: 78px;
+  margin-bottom: 1rem;
+  object-fit: cover;
+  border: 1px solid rgba(255, 177, 0, 0.72);
+  border-radius: 50%;
+  background: #050505;
+  box-shadow: 0 0 26px rgba(255, 177, 0, 0.18);
+}
+
+.central-summary__label {
+  color: var(--levo-muted);
+  font-family: "Levo Mono", "Courier New", monospace;
+  font-size: 0.64rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.central-summary h2 {
+  margin: 1rem 0 0;
+  color: var(--levo-white);
+  font-size: 2rem;
+  font-weight: 500;
+  letter-spacing: -0.06em;
+}
+
+.central-summary > p {
+  margin: 0.8rem 0 2rem;
+  color: var(--levo-muted);
+  font-size: 0.82rem;
+  line-height: 1.5;
+}
+
+.central-summary__line {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.8rem 0;
+  border-top: 1px solid var(--levo-line);
+  color: var(--levo-muted);
+  font-family: "Levo Mono", "Courier New", monospace;
+  font-size: 0.67rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.central-summary__line strong {
+  color: var(--levo-white);
+  font-weight: 400;
+  text-align: right;
+}
+
+.central-summary__price {
+  margin-top: 1.25rem;
+  padding: 0.85rem 0.9rem;
+  color: var(--levo-amber);
+  border: 1px solid rgba(255, 177, 0, 0.35);
+  border-radius: 12px;
+  background: rgba(255, 177, 0, 0.06);
+  font-size: 0.85rem;
+  line-height: 1.4;
+}
+
+.central-summary__address {
+  margin-top: 2.8rem;
+  color: var(--levo-dim);
+  font-family: "Levo Mono", "Courier New", monospace;
+  font-size: 0.62rem;
+  line-height: 1.55;
+}
+
+.central-success {
+  display: flex;
+  min-height: 100svh;
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 3rem 1.25rem 6rem;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.central-success__mark {
+  display: grid;
+  width: 58px;
+  height: 58px;
+  margin: 5rem 0 1.5rem;
+  place-items: center;
+  color: #090909;
+  background: var(--levo-amber);
+  border-radius: 50%;
+  font-size: 1.5rem;
+}
+
+.central-success h1 {
+  max-width: 680px;
+}
+
+.central-success > p:not(.central-kicker) {
+  max-width: 520px;
+  margin: 2rem 0 0;
+  color: var(--levo-muted);
+  font-size: 1rem;
+  line-height: 1.55;
+}
+
+.central-summary--success {
+  display: grid;
+  gap: 0.5rem;
+  position: static;
+  max-width: 460px;
+  margin: 2rem 0;
+}
+
+.central-summary--success span {
+  color: var(--levo-muted);
+  font-family: "Levo Mono", "Courier New", monospace;
+  font-size: 0.7rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.central-summary--success strong {
+  font-size: 1.2rem;
+  font-weight: 500;
+}
+
+.central-summary--success small {
+  color: var(--levo-muted);
+}
+
+.central-success .central-button {
+  align-self: flex-start;
+}
+
+.central-secondary-link {
+  margin-top: 2rem;
+  align-self: flex-start;
+}
+
+@media (max-width: 900px) {
+  .central-layout {
+    grid-template-columns: 1fr;
+    gap: 4rem;
+  }
+
+  .central-summary {
+    position: static;
+  }
+}
+
+@media (max-width: 620px) {
+  .central-header {
+    min-height: 72px;
+  }
+
+  .central-header__phone {
+    font-size: 0.6rem;
+  }
+
+  .central-intro {
+    margin-top: 3.2rem;
+  }
+
+  .central-intro h1,
+  .central-success h1 {
+    font-size: clamp(3.6rem, 17vw, 5.6rem);
+  }
+
+  .central-steps {
+    gap: 0.35rem;
+  }
+
+  .central-step {
+    min-height: 68px;
+    align-items: flex-start;
+    padding-top: 0.8rem;
+    flex-direction: column;
+    gap: 0.2rem;
+    font-size: 0.56rem;
+  }
+
+  .central-date-list {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  .central-time-list,
+  .central-fields {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .central-service {
+    grid-template-columns: 30px minmax(0, 1fr) auto 28px;
+    gap: 0.55rem;
+    padding-inline: 0.8rem;
+  }
+
+  .central-service__price {
+    font-size: 0.62rem;
+  }
+
+  .central-fields {
+    gap: 0.7rem;
+  }
+
+  .central-actions {
+    justify-content: stretch;
+  }
+
+  .central-actions .central-button,
+  .central-actions .central-secondary-button {
+    flex: 1;
+  }
+
+  .central-success__mark {
+    margin-top: 3rem;
+  }
+}
