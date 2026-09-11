@@ -3,7 +3,6 @@ import { ContactFooter } from "../components/sites/levo-studio-com-7d74c785/root
 import { Hero } from "../components/sites/levo-studio-com-7d74c785/root-8a5edab2/Hero";
 import { Philosophy } from "../components/sites/levo-studio-com-7d74c785/root-8a5edab2/Philosophy";
 
-const whatsappUrl = "https://wa.me/5521965403777";
 const mapsUrl = "https://www.google.com/maps/search/?api=1&query=R.+Ourique,+1055+-+Loja+D,+Br%C3%A1s+de+Pina,+Rio+de+Janeiro+-+RJ";
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000";
 
@@ -47,9 +46,6 @@ export default function Home() {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessJsonLd) }} />
       <div className="levo-grain" aria-hidden="true" />
       <Hero />
-      <a className="levo-mobile-cta" href={whatsappUrl} target="_blank" rel="noreferrer" data-track="whatsapp" data-track-label="CTA mobile de agendamento">
-        Agendar pelo WhatsApp <span aria-hidden="true">↗</span>
-      </a>
       <Philosophy />
       <div id="leistungen" className="levo-leistungen-head">
         <div>

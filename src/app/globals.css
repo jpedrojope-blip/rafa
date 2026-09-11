@@ -1009,15 +1009,11 @@ a:focus-visible {
   align-items: center;
 }
 
-.levo-mobile-cta {
-  display: none;
-}
-
 @media (max-width: 800px) {
   .levo-hero {
     min-height: 100svh;
     padding-top: 2.5rem;
-    background-position: center, center, 72% center;
+    background-position: center, center, 18% center;
     background-size: cover, cover, cover;
   }
 
@@ -1092,32 +1088,6 @@ a:focus-visible {
   .brand-tabs__cta {
     display: inline-flex;
     margin-left: 0;
-  }
-
-  .levo-mobile-cta {
-    position: fixed;
-    z-index: 15;
-    right: 1rem;
-    bottom: max(1rem, env(safe-area-inset-bottom));
-    left: 1rem;
-    display: flex;
-    min-height: 54px;
-    align-items: center;
-    justify-content: center;
-    gap: 0.65rem;
-    padding: 0.8rem 1rem;
-    color: #090909;
-    background: var(--levo-amber);
-    border-radius: 999px;
-    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.42), 0 0 24px rgba(255, 177, 0, 0.2);
-    font-size: 0.78rem;
-    font-weight: 700;
-    letter-spacing: 0.06em;
-    text-transform: uppercase;
-  }
-
-  .levo-landing {
-    padding-bottom: 5.5rem;
   }
 
   .levo-hero__meta {
