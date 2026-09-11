@@ -4,7 +4,7 @@ import { gsap } from "gsap";
 import { useEffect, useRef } from "react";
 import { BrandTabs } from "./BrandTabs";
 
-const whatsappUrl = "https://wa.me/5521966834526";
+const whatsappUrl = "https://wa.me/5521965403777";
 
 export function Hero() {
   const sectionRef = useRef<HTMLElement>(null);
@@ -16,23 +16,20 @@ export function Hero() {
     if (!section || !copy) return;
 
     const context = gsap.context(() => {
-      gsap.from(".hero-in > *", {
-        y: 24,
-        autoAlpha: 0,
-        duration: 0.75,
-        stagger: 0.08,
-        ease: "power3.out",
-      });
-      gsap.from(".levo-hero__brand", {
-        scale: 0.9,
-        autoAlpha: 0,
-        duration: 1.4,
-        delay: 0.15,
-        ease: "power2.out",
-      });
+      const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+      if (!reducedMotion) {
+        gsap.from(".hero-in > *", {
+          y: 24,
+          autoAlpha: 0,
+          duration: 0.75,
+          stagger: 0.08,
+          ease: "power3.out",
+        });
+      }
     }, section);
 
     const update = () => {
+      if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
       const opacity = Math.max(0, Math.min(1, 1 - window.scrollY / (0.85 * window.innerHeight)));
       copy.style.opacity = opacity.toFixed(3);
       copy.style.transform = `translateY(${(-0.12 * window.scrollY).toFixed(1)}px)`;
@@ -59,19 +56,20 @@ export function Hero() {
           <span>Brás de Pina, RJ</span>
         </p>
         <h1 id="hero-title" className="levo-hero__title">
-          <span>Barbearia do Rafa.</span>{" "}
-          <span className="levo-hero__title-dim">Seja a sua melhor versão.</span>
+          <span>Corte e barba</span>{" "}
+          <span className="levo-hero__title-dim">bem acabados em Brás de Pina.</span>
         </h1>
         <p className="levo-hero__lede">
-          Cortes, barba e cuidados masculinos com profissionais qualificados e atendimento de qualidade.
+          Acabamento preciso, ambiente climatizado e atendimento masculino pensado para você sair alinhado e confiante.
         </p>
         <div className="levo-hero__actions">
-          <a className="levo-btn" href={whatsappUrl} target="_blank" rel="noreferrer">Falar no WhatsApp</a>
-          <a className="levo-hero__textlink" href="#avaliacoes">Ver avaliações</a>
+          <a className="levo-btn" href={whatsappUrl} target="_blank" rel="noreferrer" data-track="whatsapp" data-track-label="Agendar pelo WhatsApp">Agendar pelo WhatsApp</a>
+          <a className="levo-hero__textlink" href="#leistungen">Ver serviços e preços</a>
         </div>
         <p className="levo-hero__rating" aria-label="Avaliação 4,8 de 5 no Google, com 17 avaliações">
           <span aria-hidden="true">★</span> <strong>4,8/5</strong> no Google · 17 avaliações
         </p>
+        <p className="levo-hero__offer">Terça a sábado · 08:30–20:00 · Serviços a partir de R$ 10</p>
       </div>
       <div className="levo-hero__foot" aria-hidden="true">
         <span>R. OURIQUE, 1055 · LOJA D · CEP 21011-130</span>

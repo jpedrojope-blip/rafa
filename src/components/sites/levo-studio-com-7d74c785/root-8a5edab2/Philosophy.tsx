@@ -15,17 +15,22 @@ export function Philosophy() {
   const sectionRef = useRef<HTMLElement>(null);
 
   useEffect(() => {
-    const update = () => {
+    const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+    let frame = 0;
+
+    const paint = () => {
+      frame = 0;
       const section = sectionRef.current;
       if (!section) return;
       const range = section.getBoundingClientRect();
       const progress = clamp((window.innerHeight - range.top) / Math.max(1, range.height));
-      const visible = progress < 0.06 ? 0 : clamp((progress - 0.06) / 0.8);
+      const visible = reducedMotion.matches ? 1 : progress < 0.04 ? 0 : clamp((progress - 0.04) / 0.84);
       section.querySelectorAll<HTMLElement>(".philosophy-word").forEach((word, index) => {
-        const step = clamp((visible * (words.length + 2.2) - index) / 2.2);
+        const step = reducedMotion.matches ? 1 : clamp((visible * (words.length + 2.2) - index) / 2.2);
         const eased = step * step * (3 - 2 * step);
-        word.style.filter = `blur(${((1 - eased) * 8).toFixed(2)}px)`;
-        word.style.opacity = (0.22 + 0.78 * eased).toFixed(3);
+        word.style.filter = reducedMotion.matches ? "none" : `blur(${((1 - eased) * 8).toFixed(2)}px)`;
+        word.style.opacity = reducedMotion.matches ? "1" : (0.22 + 0.78 * eased).toFixed(3);
+        word.style.transform = reducedMotion.matches ? "none" : `translateY(${((1 - eased) * 0.08).toFixed(3)}em)`;
         word.style.color = word.dataset.accent === "true"
           ? `rgb(${Math.round(78 + (255 - 78) * eased)},${Math.round(78 + (177 - 78) * eased)},${Math.round(74 * (1 - eased))})`
           : `rgb(${Math.round(78 + (255 - 78) * eased)},${Math.round(78 + (255 - 78) * eased)},${Math.round(74 + (255 - 74) * eased)})`;
@@ -33,12 +38,20 @@ export function Philosophy() {
       const fill = section.querySelector<HTMLElement>("[data-pinfill]");
       if (fill) fill.style.width = `${(progress * 100).toFixed(1)}%`;
     };
+
+    const update = () => {
+      if (frame) return;
+      frame = window.requestAnimationFrame(paint);
+    };
     update();
     window.addEventListener("scroll", update, { passive: true });
     window.addEventListener("resize", update);
+    reducedMotion.addEventListener("change", update);
     return () => {
+      if (frame) window.cancelAnimationFrame(frame);
       window.removeEventListener("scroll", update);
       window.removeEventListener("resize", update);
+      reducedMotion.removeEventListener("change", update);
     };
   }, []);
 

@@ -115,6 +115,57 @@ a:focus-visible {
   padding: 0.35rem 0.4rem 0.35rem 0.8rem;
 }
 
+.brand-tabs__toggle {
+  display: none;
+  min-height: 44px;
+  align-items: center;
+  gap: 0.65rem;
+  padding: 0.55rem 0.8rem;
+  color: var(--levo-amber);
+  border: 1px solid rgba(255, 177, 0, 0.38);
+  border-radius: 999px;
+  background: rgba(255, 177, 0, 0.08);
+  font: inherit;
+  font-family: "Levo Mono", "Courier New", monospace;
+  font-size: 0.58rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  cursor: pointer;
+  touch-action: manipulation;
+  transition: color 180ms ease, background 180ms ease, border-color 180ms ease, box-shadow 180ms ease;
+}
+
+.brand-tabs__toggle:hover,
+.brand-tabs__toggle:focus-visible,
+.brand-tabs--open .brand-tabs__toggle {
+  color: #090909;
+  border-color: var(--levo-amber);
+  background: var(--levo-amber);
+  box-shadow: 0 0 0 1px rgba(255, 221, 132, 0.55), 0 0 22px rgba(255, 177, 0, 0.24);
+}
+
+.brand-tabs__toggle-icon {
+  display: grid;
+  width: 18px;
+  gap: 5px;
+}
+
+.brand-tabs__toggle-icon i {
+  display: block;
+  width: 18px;
+  height: 1px;
+  background: currentColor;
+  transition: transform 180ms ease;
+}
+
+.brand-tabs--open .brand-tabs__toggle-icon i:first-child {
+  transform: translateY(3px) rotate(45deg);
+}
+
+.brand-tabs--open .brand-tabs__toggle-icon i:last-child {
+  transform: translateY(-3px) rotate(-45deg);
+}
+
 .brand-tabs__mark {
   display: inline-flex;
   align-items: center;
@@ -337,6 +388,9 @@ a:focus-visible {
 
 .levo-hero__textlink,
 .levo-card__link {
+  display: inline-flex;
+  min-height: 44px;
+  align-items: center;
   color: var(--levo-amber);
   border-bottom: 1px solid rgba(255, 177, 0, 0.35);
   font-size: 0.92rem;
@@ -362,6 +416,15 @@ a:focus-visible {
 
 .levo-hero__rating strong {
   color: var(--levo-white);
+}
+
+.levo-hero__offer {
+  margin: 1rem 0 0;
+  color: var(--levo-amber);
+  font-family: "Levo Mono", "Courier New", monospace;
+  font-size: 0.68rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
 }
 
 .levo-hero__foot {
@@ -441,7 +504,7 @@ a:focus-visible {
 .philosophy-word,
 .crawl-word {
   display: inline-block;
-  will-change: filter, opacity, color;
+  will-change: filter, opacity, color, transform;
 }
 
 .levo-philosophy__proof {
@@ -493,6 +556,35 @@ a:focus-visible {
   font-size: clamp(2.8rem, 6vw, 6rem);
   font-weight: 650;
   letter-spacing: -0.075em;
+}
+
+.levo-leistungen-head > div {
+  min-width: 0;
+}
+
+.levo-leistungen-head > div > p {
+  max-width: 34rem;
+  margin: 1rem 0 0;
+  color: var(--levo-muted);
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+.levo-leistungen-head__link {
+  display: inline-flex;
+  min-height: 44px;
+  align-items: center;
+  gap: 0.6rem;
+  color: var(--levo-amber);
+  font-family: "Levo Mono", "Courier New", monospace;
+  font-size: 0.7rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.levo-leistungen-head__link:hover {
+  color: var(--levo-white);
 }
 
 .levo-eyebrow {
@@ -548,6 +640,15 @@ a:focus-visible {
   color: var(--levo-muted);
   font-size: clamp(1rem, 1.45vw, 1.2rem);
   line-height: 1.55;
+}
+
+.levo-card__offer {
+  margin: 1.6rem 0 0;
+  color: var(--levo-amber);
+  font-family: "Levo Mono", "Courier New", monospace;
+  font-size: 0.7rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
 }
 
 .levo-card__text .crawl-word[data-accent="true"] {
@@ -709,13 +810,34 @@ a:focus-visible {
   line-height: 0.95;
 }
 
-.levo-reviews__head > p:last-child {
+.levo-reviews__proof {
+  display: grid;
+  justify-items: end;
+  gap: 0.7rem;
+}
+
+.levo-reviews__proof p {
   margin: 0;
   color: var(--levo-muted);
   font-family: "Levo Mono", "Courier New", monospace;
   font-size: 0.7rem;
   letter-spacing: 0.08em;
   white-space: nowrap;
+}
+
+.levo-reviews__proof a {
+  display: inline-flex;
+  min-height: 44px;
+  align-items: center;
+  color: var(--levo-amber);
+  font-family: "Levo Mono", "Courier New", monospace;
+  font-size: 0.66rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.levo-reviews__proof a:hover {
+  color: var(--levo-white);
 }
 
 .levo-reviews__head strong {
@@ -881,11 +1003,21 @@ a:focus-visible {
   color: var(--levo-amber);
 }
 
+.levo-footer a {
+  display: inline-flex;
+  min-height: 44px;
+  align-items: center;
+}
+
+.levo-mobile-cta {
+  display: none;
+}
+
 @media (max-width: 800px) {
   .levo-hero {
     min-height: 100svh;
     padding-top: 2.5rem;
-    background-position: center, center, 40% center;
+    background-position: center, center, 72% center;
     background-size: cover, cover, cover;
   }
 
@@ -894,33 +1026,98 @@ a:focus-visible {
     right: 1rem;
     left: 1rem;
     border-radius: 24px;
+    overflow: visible;
   }
 
   .brand-tabs__inner {
-    align-items: flex-start;
-    gap: 0.55rem;
-    padding: 0.5rem;
-    flex-direction: column;
+    align-items: center;
+    gap: 0;
+    padding: 0.4rem;
+    flex-wrap: wrap;
   }
 
   .brand-tabs__mark {
-    width: 100%;
+    width: auto;
+    flex: 1 1 auto;
     min-height: 40px;
     padding-inline: 0.35rem;
     border-right: 0;
   }
 
+  .brand-tabs__toggle {
+    display: inline-flex;
+    flex: 0 0 auto;
+  }
+
   .brand-tabs__links {
-    width: 100%;
-    overflow-x: auto;
-    padding-bottom: 0.1rem;
+    position: absolute;
+    top: calc(100% + 0.5rem);
+    right: 0.4rem;
+    left: 0.4rem;
+    width: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0.25rem;
+    margin-top: 0;
+    padding: 0.4rem 0.2rem 0.2rem;
+    border: 1px solid rgba(255, 255, 255, 0.13);
+    border-radius: 20px;
+    background: linear-gradient(110deg, rgba(10, 10, 10, 0.96), rgba(19, 17, 12, 0.94));
+    box-shadow: 0 18px 45px rgba(0, 0, 0, 0.36), inset 0 1px 0 rgba(255, 255, 255, 0.07);
+    backdrop-filter: blur(18px) saturate(125%);
+    opacity: 0;
+    pointer-events: none;
+    visibility: hidden;
+    transform: translateY(-8px) scale(0.98);
+    transform-origin: top right;
+    transition: opacity 180ms ease, visibility 180ms ease, transform 220ms ease;
+  }
+
+  .brand-tabs--open .brand-tabs__links {
+    opacity: 1;
+    pointer-events: auto;
+    visibility: visible;
+    transform: translateY(0) scale(1);
   }
 
   .brand-tabs__tab,
   .brand-tabs__cta {
-    flex: 0 0 auto;
-    min-height: 38px;
-    padding-inline: 0.65rem;
+    width: 100%;
+    min-height: 48px;
+    justify-content: space-between;
+    padding-inline: 0.85rem;
+  }
+
+  .brand-tabs__cta {
+    display: inline-flex;
+    margin-left: 0;
+  }
+
+  .levo-mobile-cta {
+    position: fixed;
+    z-index: 15;
+    right: 1rem;
+    bottom: max(1rem, env(safe-area-inset-bottom));
+    left: 1rem;
+    display: flex;
+    min-height: 54px;
+    align-items: center;
+    justify-content: center;
+    gap: 0.65rem;
+    padding: 0.8rem 1rem;
+    color: #090909;
+    background: var(--levo-amber);
+    border-radius: 999px;
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.42), 0 0 24px rgba(255, 177, 0, 0.2);
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+  }
+
+  .levo-landing {
+    padding-bottom: 5.5rem;
   }
 
   .levo-hero__meta {
@@ -999,7 +1196,11 @@ a:focus-visible {
     align-items: start;
   }
 
-  .levo-reviews__head > p:last-child {
+  .levo-reviews__proof {
+    justify-items: start;
+  }
+
+  .levo-reviews__proof p {
     white-space: normal;
   }
 
@@ -1223,6 +1424,12 @@ a:focus-visible {
 
 .central-form {
   margin-top: 3.5rem;
+}
+
+.central-contact-panel {
+  margin-top: 5rem;
+  padding-top: 4rem;
+  border-top: 1px solid var(--levo-line);
 }
 
 .central-panel__heading h2 {
@@ -1484,6 +1691,12 @@ a:focus-visible {
   font-size: 0.65rem;
   letter-spacing: 0.08em;
   text-transform: uppercase;
+}
+
+.central-fields label span {
+  color: var(--levo-dim);
+  font-size: 0.58rem;
+  letter-spacing: 0.04em;
 }
 
 .central-fields input {
@@ -1816,9 +2029,8 @@ a:focus-visible {
     grid-template-columns: repeat(4, 1fr);
   }
 
-  .central-time-list,
   .central-fields {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: 1fr;
   }
 
   .central-service {
@@ -1842,6 +2054,10 @@ a:focus-visible {
   .central-actions .central-button,
   .central-actions .central-secondary-button {
     flex: 1;
+  }
+
+  .central-actions .central-button {
+    width: 100%;
   }
 
   .central-success__mark {

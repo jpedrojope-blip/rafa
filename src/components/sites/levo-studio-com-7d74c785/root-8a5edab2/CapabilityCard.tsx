@@ -4,21 +4,21 @@ import { useEffect, useRef } from "react";
 
 type Kind = "platforms" | "websites" | "hosting" | "infrastructure";
 
-const bookingUrl = "https://wa.me/5521966834526";
+const bookingUrl = "https://wa.me/5521965403777";
 const mapsUrl = "https://www.google.com/maps/search/?api=1&query=R.+Ourique,+1055+-+Loja+D,+Br%C3%A1s+de+Pina,+Rio+de+Janeiro+-+RJ";
 const mapsEmbedUrl = "https://www.google.com/maps?q=R.+Ourique,+1055+-+Loja+D,+Br%C3%A1s+de+Pina,+Rio+de+Janeiro+-+RJ&output=embed";
 
-const content: Record<Kind, { number: string; label: string; title: string; parts: Array<[string, boolean]>; link: string; href: string }> = {
+const content: Record<Kind, { number: string; label: string; title: string; offer?: string; parts: Array<[string, boolean]>; link: string; href: string }> = {
   platforms: {
-    number: "02", label: "Serviço", title: "Cortes com precisão", href: bookingUrl, link: "Falar no WhatsApp",
+    number: "02", label: "Serviço", title: "Cortes com precisão", offer: "Cortes a partir de R$ 27", href: bookingUrl, link: "Agendar pelo WhatsApp",
     parts: [["Cortes pensados para o seu estilo, com acabamento ", false], ["preciso", true], [" e atenção em cada detalhe. Você sai alinhado, confiante e ", false], ["pronto para a sua melhor versão", true], [".", false]],
   },
   websites: {
-    number: "03", label: "Serviço", title: "Barba & acabamento", href: bookingUrl, link: "Falar no WhatsApp",
+    number: "03", label: "Serviço", title: "Barba & acabamento", offer: "Barba a partir de R$ 25", href: bookingUrl, link: "Agendar pelo WhatsApp",
     parts: [["Barba desenhada, acabamento limpo e cuidado masculino com resultado ", false], ["impecável", true], [". Um atendimento feito para valorizar o seu rosto e o seu ", false], ["estilo", true], [".", false]],
   },
   hosting: {
-    number: "04", label: "Ambiente", title: "Conforto em cada visita", href: bookingUrl, link: "Falar no WhatsApp",
+    number: "04", label: "Ambiente", title: "Conforto em cada visita", offer: "Terça a sábado · 08:30–20:00", href: bookingUrl, link: "Agendar pelo WhatsApp",
     parts: [["Ambiente climatizado, higiene 100% e profissionais qualificados. Tudo preparado para uma experiência ", false], ["leve", true], [", confortável e ", false], ["de qualidade", true], [".", false]],
   },
   infrastructure: {
@@ -108,8 +108,9 @@ export function CapabilityCard({ kind }: { kind: Kind }) {
         <div>
           <p className="levo-card__tag"><span className="levo-card__num">{data.number}</span><span className="levo-eyebrow">{data.label}</span></p>
           <h3 id={`cap-${kind}`}>{data.title}</h3>
+          {data.offer && <p className="levo-card__offer">{data.offer}</p>}
           <p className="levo-card__text">{data.parts.flatMap(([part, accent], partIndex) => part.split(/(\s+)/).map((token, tokenIndex) => /^\s+$/.test(token) ? <span key={`${partIndex}-${tokenIndex}`}>{token}</span> : <span key={`${partIndex}-${tokenIndex}`} className="crawl-word" data-accent={accent ? "true" : "false"}>{token}</span>))}</p>
-          <a className="levo-card__link" href={data.href} target={data.href.startsWith("http") ? "_blank" : undefined} rel={data.href.startsWith("http") ? "noreferrer" : undefined}>{data.link} <span aria-hidden="true">→</span></a>
+          <a className="levo-card__link" href={data.href} target={data.href.startsWith("http") ? "_blank" : undefined} rel={data.href.startsWith("http") ? "noreferrer" : undefined} data-track={data.href.includes("wa.me") ? "whatsapp" : "maps"}>{data.link} <span aria-hidden="true">→</span></a>
         </div>
         <Diagram kind={kind} />
       </div>

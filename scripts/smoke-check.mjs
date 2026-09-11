@@ -11,7 +11,7 @@ const sources = await Promise.all([
 ]);
 const source = sources.join("\n");
 
-for (const value of ["Barbearia do Rafa", "4,8/5", "barbeariadorafa16", "R. Ourique", "wa.me/5521966834526", "agendar horário_", "Pagamento no local", "R$ 27", "R$ 55", "corte-cinematografico.jpeg", "mapsEmbedUrl", "gsap", "levo-hero", "levo-card", "levo-cta"]) {
+for (const value of ["Barbearia do Rafa", "4,8/5", "barbeariadorafa16", "R. Ourique", "wa.me/5521965403777", "Agendar pelo WhatsApp", "Pagamento no local", "R$ 27", "R$ 55", "corte-cinematografico.jpeg", "mapsEmbedUrl", "gsap", "levo-hero", "levo-card", "levo-cta"]) {
   if (!source.toLowerCase().includes(value.toLowerCase())) throw new Error(`Missing content: ${value}`);
 }
 
