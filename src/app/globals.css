@@ -88,9 +88,9 @@ a:focus-visible {
   background-image:
     linear-gradient(90deg, rgba(8, 8, 8, 0.99) 0%, rgba(8, 8, 8, 0.94) 31%, rgba(8, 8, 8, 0.52) 64%, rgba(8, 8, 8, 0.08) 100%),
     linear-gradient(180deg, rgba(8, 8, 8, 0.1), rgba(8, 8, 8, 0.58)),
-    url("/sites/barbearia-do-rafa/rafa-logo.jpeg");
-  background-position: center, center, 40% center;
-  background-size: cover, cover, cover;
+    url("/sites/barbearia-do-rafa/hero-barbearia.jpeg");
+  background-position: center, center, right center;
+  background-size: cover, cover, auto 100%;
   background-repeat: no-repeat;
 }
 
@@ -1013,8 +1013,8 @@ a:focus-visible {
   .levo-hero {
     min-height: 100svh;
     padding-top: 2.5rem;
-    background-position: center, center, 18% center;
-    background-size: cover, cover, cover;
+    background-position: center, center, right center;
+    background-size: cover, cover, auto 100%;
   }
 
   .brand-tabs {
